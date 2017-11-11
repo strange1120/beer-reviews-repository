@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Styles</title>
+</head>
+
+<body>
+<h3><a href="/reviews">Reviews</a></h3>
+<h3><a href="/breweries">Breweries</a></h3>
+	<header>
+		<h1>Styles</h1>
+	</header>
+
+	<div th:each="style: ${styles}">
+		<h2>
+		<a th:href="@{/style(id=${style.id})}" th:text="${style.style}"></a>
+		</h2>
+		</div>
+		<a href="http://localhost:8080/">Back to home</a>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Brewery</title>
+</head>
+
+<body>
+
+	<header>
+		<h1>Brewery</h1>
+	</header>
+
+	<div>
+		<h2 th:text="${brewery.breweryName}"></h2>
+		<ul>
+		<li th:each="review: ${brewery.reviewList}">
+			<a th:href = "@{/review(id=${review.id})}" th:text="${review.beerName}"></a>
+			</li>
+		</ul>
+		<a href="http://localhost:8080/">Back to home</a>
+	</div>
+
+</body>
+</html>
