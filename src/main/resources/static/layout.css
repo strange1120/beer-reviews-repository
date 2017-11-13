@@ -4,66 +4,6 @@
 	padding: 0;
 }
 
-#style-content li {
-	font-size: 25px;
-}
-
-h3 {
-	font-size: 30px;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	color: white;
-}
-
-body {
-	background: url(./images/beer.jpg) no-repeat fixed;
-	background-size: cover;
-}
-
-img {
-	height: 250px;
-	width: 350px;
-}
-
-h2 {
-	font-size: 60px;
-}
-
-.container {
-	background-color: #DDDCDA;
-}
-
-* {
-	font-family: 'Raleway', sans-serif;
-}
-
-header {
-	border-bottom: 1px solid black;
-}
-
-h1 {
-	font-size: 85px;
-	color: black;
-}
-
-footer p {
-	font-size: 25px;
-}
-
-ul {
-	list-style-type: none;
-}
-
-a {
-	font-size: 30px;
-	color: black;
-}
-
 :root { -
 	-grid-gap: 10px;
 }
@@ -91,9 +31,20 @@ footer {
 	justify-content: center;
 }
 
+#reviews-content {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
 #review-content {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+}
+
+#reviews-list {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
 }
 
 #review-beer-brewery-style {
@@ -111,22 +62,12 @@ footer {
 
 #img-review-column p {
 	margin: 40px 30px 150px 30px;
-	font-size: 25px;
 }
 
 #styles-content {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	margin-top: 30px;
-}
-
-#style-list {
-	display: flex;
-	justify-content: center;
-}
-
-#style-list a {
-	font-size: 60px;
 }
 
 #style-content {
@@ -142,6 +83,11 @@ footer {
 
 #style-content li {
 	margin-bottom: 15px;
+}
+
+#style-list {
+	display: flex;
+	justify-content: center;
 }
 
 header {
@@ -165,11 +111,6 @@ header nav ul {
 	flex-direction: row;
 }
 
-#reviews-content {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-
 #single-tag-content {
 	margin-left: 50px;
 	margin-top: 30px;
@@ -185,17 +126,11 @@ header nav ul {
 
 #tags-content {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(2, 1fr);
 	margin-top: 30px;
 }
 
 .tags {
 	display: flex;
 	justify-content: center;
-}
-
-#reviews-list {
-	display: flex;
-	justify-content: center;
-	margin-top: 30px;
 }
