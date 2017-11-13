@@ -1,4 +1,4 @@
-package beerreviewssite;
+package beerreviewssite2;
 
 import java.util.Set;
 
@@ -13,21 +13,22 @@ public class Style {
 	@Id
 	@GeneratedValue
 	private Long id;
+
 	private String style;
+
+	@OneToMany(mappedBy = "style")
+	private Set<Review> reviewList;
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getStyle() {
-		return style;
-	}
-
-	@OneToMany(mappedBy = "style")
-	private Set<Review> reviewList;
-
 	public Set<Review> getReviewList() {
 		return reviewList;
+	}
+
+	public String getStyle() {
+		return style;
 	}
 
 	protected Style() {
@@ -37,4 +38,5 @@ public class Style {
 	public Style(String style) {
 		this.style = style;
 	}
+
 }

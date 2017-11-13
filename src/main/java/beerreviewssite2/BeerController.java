@@ -1,4 +1,4 @@
-package beerreviewssite;
+package beerreviewssite2;
 
 import javax.annotation.Resource;
 
@@ -14,21 +14,21 @@ public class BeerController {
 	ReviewRepository reviewRepo;
 
 	@Resource
-	StyleRepository styleRepo;
+	TagRepository tagRepo;
 
 	@Resource
-	BreweryRepository breweryRepo;
+	StyleRepository styleRepo;
+
+	@RequestMapping("/tags")
+	public String showAllTags(Model model) {
+		model.addAttribute("tags", tagRepo.findAll());
+		return "tags";
+	}
 
 	@RequestMapping("/styles")
 	public String showAllStyles(Model model) {
 		model.addAttribute("styles", styleRepo.findAll());
 		return "styles";
-	}
-
-	@RequestMapping("/breweries")
-	public String showAllBreweries(Model model) {
-		model.addAttribute("breweries", breweryRepo.findAll());
-		return "breweries";
 	}
 
 	@RequestMapping("/reviews")
@@ -37,17 +37,17 @@ public class BeerController {
 		return "reviews";
 	}
 
+	@RequestMapping("/tag")
+	public String showOneTag(@RequestParam Long id, Model model) {
+		model.addAttribute("tag", tagRepo.findOne(id));
+		return "tag";
+
+	}
+
 	@RequestMapping("/style")
 	public String showOneStyle(@RequestParam Long id, Model model) {
 		model.addAttribute("style", styleRepo.findOne(id));
 		return "style";
-
-	}
-
-	@RequestMapping("/brewery")
-	public String showOneBrewery(@RequestParam Long id, Model model) {
-		model.addAttribute("brewery", breweryRepo.findOne(id));
-		return "brewery";
 
 	}
 
@@ -59,9 +59,10 @@ public class BeerController {
 
 	@RequestMapping("/")
 	public String showAllClasses(Model model) {
-		model.addAttribute("breweries", breweryRepo.findAll());
 		model.addAttribute("styles", styleRepo.findAll());
+		model.addAttribute("tags", tagRepo.findAll());
 		model.addAttribute("reviews", reviewRepo.findAll());
 		return "splashPage";
 	}
+
 }

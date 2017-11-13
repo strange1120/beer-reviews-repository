@@ -1,4 +1,4 @@
-package beerreviewssite;
+package beerreviewssite2;
 
 import org.springframework.data.repository.CrudRepository;
 

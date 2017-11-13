@@ -4,21 +4,43 @@
 
 <head>
 <title>Styles</title>
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Slabo+27px"
+	rel="stylesheet"></link>
+<link rel="stylesheet" type="text/css" href="./styles.css" />
+<link rel="stylesheet" type="text/css" href="./layout.css" />
+<link rel="stylesheet" type="text/css" href="./normalize.css" />
 </head>
 
 <body>
-<h3><a href="/reviews">Reviews</a></h3>
-<h3><a href="/breweries">Breweries</a></h3>
-	<header>
-		<h1>Styles</h1>
-	</header>
 
-	<div th:each="style: ${styles}">
-		<h2>
-		<a th:href="@{/style(id=${style.id})}" th:text="${style.style}"></a>
-		</h2>
+	<div class="container">
+		<header>
+			<h1>Styles</h1>
+			<nav>
+				<h3>
+					<a href="/tags">Tags</a>
+				</h3>
+				<h3>
+					<a href="/reviews">Reviews</a>
+				</h3>
+				<h3>
+					<a href="http://localhost:8080/">Home</a>
+				</h3>
+			</nav>
+		</header>
+
+		<div id="styles-content">
+			<div th:each="style: ${styles}">
+				<h2 id="style-list">
+					<a th:href="@{/style(id=${style.id})}" th:text="${style.style}"></a>
+				</h2>
+			</div>
 		</div>
-		<a href="http://localhost:8080/">Back to home</a>
 
+		<footer>
+			<p>Copyright 2017 Sarah Strange</p>
+		</footer>
+	</div>
 </body>
 </html>

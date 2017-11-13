@@ -3,22 +3,45 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Books</title>
+<title>Reviews</title>
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Slabo+27px"
+	rel="stylesheet"></link>
+<link rel="stylesheet" type="text/css" href="./styles.css" />
+<link rel="stylesheet" type="text/css" href="./layout.css" />
+<link rel="stylesheet" type="text/css" href="./normalize.css" />
 </head>
 
 <body>
-<h3><a href="/breweries">Breweries</a></h3>
-<h3><a href="/styles">Styles</a></h3>
-	<header>
-		<h1>Unsolicited Reviews</h1>
-	</header>
+	<div class="container">
+		<header>
+			<h1>Unsolicited Reviews</h1>
+			<nav>
+				<h3>
+					<a href="/styles">Styles</a>
+				</h3>
+				<h3>
+					<a href="/tags">Tags</a>
+				</h3>
+				<h3>
+					<a href="http://localhost:8080/">Home</a>
+				</h3>
 
-	<div th:each="review: ${reviews}">
-		<h2>
-		<a th:href="@{/review(id=${review.id})}" th:text="${review.beerName}"></a>
-		</h2>
-		
+			</nav>
+		</header>
+
+		<div id="reviews-content">
+			<div th:each="review: ${reviews}">
+				<h2 id="reviews-list">
+					<a th:href="@{/review(id=${review.id})}"
+						th:text="${review.beerName}"></a>
+				</h2>
+			</div>
 		</div>
+		<footer>
+			<p>Copyright 2017 Sarah Strange</p>
+		</footer>
 
+	</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package beerreviewssite;
+package beerreviewssite2;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -18,6 +18,8 @@ public class Review {
 	@GeneratedValue
 	private Long id;
 	private String beerName;
+	private String breweryName;
+	private String imageUrl;
 	@Lob
 	private String beerReview;
 
@@ -25,7 +27,7 @@ public class Review {
 	private Style style;
 
 	@ManyToMany
-	private Set<Brewery> breweries;
+	private Set<Tag> tags;
 
 	protected Review() {
 
@@ -35,27 +37,37 @@ public class Review {
 		return id;
 	}
 
-	public Style getStyle() {
-		return style;
+	public String getImageUrl() {
+		return imageUrl;
 	}
 
-	public String getBeerName() {
-		return beerName;
+	public String getBreweryName() {
+		return breweryName;
 	}
 
 	public String getBeerReview() {
 		return beerReview;
 	}
 
-	public Set<Brewery> getBreweries() {
-		return breweries;
+	public String getBeerName() {
+		return beerName;
 	}
 
-	public Review(String beerName, String beerReview, Style style, Brewery... brewery) {
-		this.beerName = beerName;
+	public Style getStyle() {
+		return style;
+	}
+
+	public Set<Tag> getTags() {
+		return tags;
+	}
+
+	public Review(String beerReview, String beerName, String breweryName, String imageUrl, Style style, Tag... tag) {
 		this.beerReview = beerReview;
+		this.beerName = beerName;
+		this.breweryName = breweryName;
+		this.imageUrl = imageUrl;
 		this.style = style;
-		this.breweries = new HashSet<Brewery>(Arrays.asList(brewery));
+		this.tags = new HashSet<Tag>(Arrays.asList(tag));
 	}
 
 }

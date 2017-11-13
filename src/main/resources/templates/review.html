@@ -4,28 +4,61 @@
 
 <head>
 <title>Review</title>
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Slabo+27px"
+	rel="stylesheet"></link>
+<link rel="stylesheet" type="text/css" href="./styles.css" />
+<link rel="stylesheet" type="text/css" href="./layout.css" />
+<link rel="stylesheet" type="text/css" href="./normalize.css" />
+
 </head>
 
 <body>
+	<div class="container">
+		<header>
+			<h1>Review</h1>
+			<nav>
+				<h3>
+					<a href="/styles">Styles</a>
+				</h3>
+				<h3>
+					<a href="/tags">Tags</a>
+				</h3>
+				<h3>
+					<a href="/reviews">Reviews</a>
+				</h3>
+				<h3>
+					<a href="http://localhost:8080/">Home</a>
+				</h3>
+			</nav>
+		</header>
 
-	<header>
-		<h1>Review</h1>
-	</header>
 
 
-	<div>
-		<h2 th:text="${review.beerName}"></h2>
-		<h3>Style: </h3>
-		<a th:href="@{/style(id=${review.style.id})}" th:text="${review.style.style}"></a>
-		<h3>Brewery(ies):</h3>
-		<ul>
-			<li th:each="brewery: ${review.breweries}">
-				<a th:href="@{/brewery(id=${brewery.id})}" th:text="${brewery.breweryName}"></a>
-			</li>
-		</ul>
-		<h3 th:text="'Review' + ${review.beerReview}"></h3>
-		<a href="http://localhost:8080/">Back to home</a>
-	</div> 
+		<div id="review-content">
+			<section id="review-beer-brewery-style">
+				<h2>Beer:</h2>
+				<h3 th:text="${review.beerName}"></h3>
+				<h2>Brewery:</h2>
+				<h3 th:text="${review.breweryName}"></h3>
+				<h2>Style:</h2>
+				<a th:href="@{/style(id=${review.style.id})}"
+					th:text="${review.style.style}"></a>
+				<h2>Tag(s):</h2>
+				<ul class="content-list-items">
+					<li th:each="tag: ${review.tags}"><a
+						th:href="@{/tag(id=${tag.id})}" th:text="${tag.tag}"></a></li>
+				</ul>
+			</section>
+			<section id="img-review-column">
+				<img th:src="${review.imageUrl}"></img>
+				<p th:text="${review.beerReview}"></p>
+			</section>
+		</div>
+		<footer>
+			<p>Copyright 2017 Sarah Strange</p>
+		</footer>
+	</div>
 
 </body>
 </html>
